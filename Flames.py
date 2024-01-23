@@ -33,8 +33,13 @@ def play_flames():
     if request.method == 'POST':
         name1 = request.form['name1']
         name2 = request.form['name2']
-        result = calculate_flames(name1, name2)
-        return render_template('result.html', name1=name1, name2=name2, result=result)
+
+        if (name1 != "" and name2 != ""):
+            result = calculate_flames(name1, name2)
+            return render_template('result.html', name1=name1, name2=name2, result=result)
+            
+        else:
+            return render_template('message.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

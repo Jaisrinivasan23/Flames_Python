@@ -1,18 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flames</title>
-    <link rel="stylesheet" href="/style.css">
+    <style>
+        /* Import google font */
+        /* It is Ubuntu Mono Font Family */
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
+
+        /* COLOR PALLETES */
+        /* Change the below palletes hexa decimal values to change the color of the whole webpage */
+        :root {
+            --color1: #caf0f8;
+            --color2: #bde0fe;
+            --color3: #48cae4;
+            --color4: #caf0f8;
+            --text1: #fb6f92;
+            --text2: #fb6f92;
+            --bg: #ffc8dd;
+            --bg2: #fb6f92;
+            --bgHover: #ffb3c6;
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style-type: none;
+            /* Change the webpage font family below */
+            font-family: 'Ubuntu Mono', monospace;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow-x: hidden;
+            background-color: var(--bg);
+        }
+
+        /* #################  Page (style for all pages)  ############### */
+        .page {
+            width: 100%;
+            height: auto;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+
+        /* ############## Sign up and sign in page ############### */
+        .form_page form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 30%;
+            padding: 20px 30px;
+            border-radius: 5px;
+            background-color: var(--color2);
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+        }
+
+        .form_page form .title {
+            margin-bottom: 20px;
+            color: var(--color4);
+        }
+
+        .form_page form .form_group {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .form_page form .form_group label {
+            font-size: 16px;
+            color: var(--text1);
+        }
+
+        .form_page form .form_group input[type='text1'],
+        .form_page form .form_group input[type='password'],
+        .form_page form .form_group input[type='email'] {
+            color: var(--text2);
+            font-size: 16px;
+            width: 60%;
+            outline: none;
+            border: none;
+            padding: 4px 10px;
+            background-color: transparent;
+            border: 1px solid var(--text2);
+        }
+
+        .form_page form input[type='submit'] {
+            margin-top: 15px;
+            margin-bottom: 10px;
+            background-color: var(--bg2);
+            color: var(--color2);
+            border: none;
+            outline: none;
+            padding: 5px 10px;
+            font-size: 17px;
+            border-radius: 5px;
+        }
+
+        .form_page form input[type='submit']:hover {
+            background: transparent;
+            border: 1px solid var(--bg2);
+            color: var(--bg2);
+        }
+
+        .form_page form .form_message {
+            color: var(--text1);
+            font-size: 16px;
+        }
+
+        .form_page form .form_message a {
+            color: var(--color4);
+            font-weight: bold;
+        }
+
+        /* ###########  Responsive signup and login page  ############## */
+        @media screen and (max-width: 800px) {
+            .form_page form {
+                width: 90%;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <form action="/flames" method="post">
-        <p class="name1">Enter your Name</p>
-        <input type="text" name="name1" autocomplete="off">
-        <p>Enter your Crush Name</p>
-        <input type="text" name="name2" autocomplete="off">
-        <input type="submit">
-    </form>
+    <section class="page form_page">
+        <form action="/flames" method="post" onsubmit="myFunction()">
+            <div class="form_group">
+                <label for="name1" class="name1">Enter your Name</label>
+                <input id="name1" type="text1" name="name1" autocomplete="off">
+            </div>
+            <div class="form_group">
+                <label for="name2">Enter your Crush Name</label>
+                <input id="name2" type="text1" name="name2" autocomplete="off">
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </section>
 </body>
+
 </html>
